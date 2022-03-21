@@ -442,3 +442,49 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.dictionary-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.dictionary-search {
+  height: 3rem;
+  width: 7rem;
+}
+.dictionary-search-input {
+  height: 100%;
+  width: 100%;
+}
+.dictionary-list-wrapper {
+  display: flex;
+  height: 24rem;
+  width: 100%;
+  flex-direction: column;
+  overflow: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border: 1px solid red;
+}
+.dictionary-el {
+  display: flex;
+  height: 3.5rem;
+  width: 100%;
+  align-items: center;
+  border: 1px solid green;
+}
+.dictionary-el-name {
+  display: flex;
+  height: 100%;
+  width: 33.333333%;
+  align-items: center;
+  justify-content: center;
+}
+.dictionary-el-des {
+  display: flex;
+  height: 100%;
+  width: 66.666667%;
+  align-items: center;
+  justify-content: center;
+}

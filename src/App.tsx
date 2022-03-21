@@ -1,12 +1,16 @@
 import { memo } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Card from "./components/Card";
-import PlayDeck from "./components/PlayDeck";
+import Dictionary from "./components/Dictionary/Dictionary";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = memo(() => {
   return (
     <>
-      <PlayDeck />
+      <Router>
+        <Routes>
+          <Route path="/dir" element={<Dictionary />}>
+          </Route>
+        </Routes>
+      </Router>
     </>
   );
 });
