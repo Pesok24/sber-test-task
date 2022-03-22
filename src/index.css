@@ -420,27 +420,11 @@ body {
   width: 100vw;
 }
 .App {
-  text-align: center;
-}
-.App.logo {
-        animation: App-logo-spin infinite 20s linear;
-        height: 80px;
-    }
-.App-header {
-        background-color: #222;
-        height: 150px;
-        padding: 20px;
-        color: white;
-    }
-.App-title {
-        font-size: 1.5em;
-    }
-.App-intro {
-        font-size: large; 
-    }
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  display: flex;
+  height: auto;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 .dictionary-wrapper {
   display: flex;
@@ -488,3 +472,71 @@ body {
   align-items: center;
   justify-content: center;
 }
+.navbar-wrapper {
+  margin-bottom: 1.5rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border: 1px solid blue;
+}
+.navbar-links {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.navbar-link {
+  height: 100%;
+  cursor: pointer;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.navbar-logo {
+  width: 15rem;
+  text-align: center;
+}
+.login-wrapper {
+  display: flex;
+  height: auto;
+  width: 18rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid red;
+}
+.login-el {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 1.5rem;
+}
+.login-head {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+.login-input {
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
+.login-p {
+  padding-bottom: 0.5rem;
+}
+.login-button {
+  margin-top: 2rem;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
