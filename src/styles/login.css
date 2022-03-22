@@ -8,11 +8,11 @@
 }
 
 .login-head {
-  @apply text-center w-full py-8;
+  @apply text-center w-full py-8 text-3xl;
 }
 
 .login-input {
-  @apply w-full h-10 border-2 rounded-lg border-blue-500
+  @apply w-full h-10 border-2 rounded-lg border-blue-500 p-2
 }
 
 .login-p {
@@ -21,4 +21,12 @@
 
 .login-button {
   @apply py-5 px-10 bg-blue-500 rounded-xl text-white mt-8
+}
+
+.login-form {
+  @apply flex flex-col items-center
+}
+
+.login-error {
+  @apply text-center pt-5
 }

@@ -515,6 +515,8 @@ body {
   padding-top: 2rem;
   padding-bottom: 2rem;
   text-align: center;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 .login-input {
   height: 2.5rem;
@@ -523,6 +525,7 @@ body {
   border-width: 2px;
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
+  padding: 0.5rem;
 }
 .login-p {
   padding-bottom: 0.5rem;
@@ -538,5 +541,14 @@ body {
   padding-right: 2.5rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-error {
+  padding-top: 1.25rem;
+  text-align: center;
 }
 

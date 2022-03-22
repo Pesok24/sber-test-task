@@ -12,3 +12,13 @@ export interface Db {
     }
   ]
 }
+
+export interface UserType {
+  name: string,
+  status: boolean
+}
+
+export interface FormState {
+  loginInput: string,
+  passwordInput: string
+}

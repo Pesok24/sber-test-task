@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useState } from "react";
-
-const rightPass = { login: "admin", password: "12345" };
+import { useUser } from "../../customHooks/useUser";
 
 const Login = memo(() => {
   const [formState, setFormState] = useState({
@@ -8,16 +7,22 @@ const Login = memo(() => {
     passwordInput: "",
   });
 
+  const [passError, setPassError] = useState(false);
+
+  const { checkUser } = useUser();
+
   const handleSubmit = useCallback(
     (ev: React.FormEvent) => {
       ev.preventDefault();
-      const { login, password } = rightPass;
-      const { loginInput, passwordInput } = formState;
-      if (login === loginInput && password === passwordInput) {
-        
+      const { status, name } = checkUser(formState);
+      if (status) {
+        localStorage.setItem("user", name);
+        localStorage.setItem("status", status.toString());
+        return;
       }
+      setPassError(true);
     },
-    [formState]
+    [checkUser, formState]
   );
 
   const handleChange = useCallback(
@@ -32,7 +37,7 @@ const Login = memo(() => {
   return (
     <>
       <div className="login-wrapper">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login-form">
           <h1 className="login-head">Вход</h1>
           <div className="login-el">
             <p className="login-p">Имя пользователя:</p>
@@ -55,6 +60,13 @@ const Login = memo(() => {
           <button type="submit" className="login-button">
             Войти
           </button>
+          {passError ? (
+            <p className="login-error">
+              Имя пользователя или пароль введены не верно
+            </p>
+          ) : (
+            ""
+          )}
         </form>
       </div>
     </>

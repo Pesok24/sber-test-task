@@ -1,7 +1,28 @@
-import { memo } from "react";
-import { Link } from "react-router-dom";
+import React, { memo, useCallback } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../../customHooks/useUser";
+import EnterBtn from "./EnterBtn";
+import ExitBtn from "./ExitBtn";
 
 const NavBar = memo(() => {
+  const { status } = useUser();
+  let navigate = useNavigate();
+
+  const btnsCofig = {
+    login: <EnterBtn />,
+    logout: <ExitBtn />,
+  };
+
+  const currentButton = status ? btnsCofig.logout : btnsCofig.login;
+
+  const handleClick = useCallback(
+    (ev: React.MouseEvent) => {
+      !status && navigate("/login");
+      status && navigate("/dir");
+    },
+    [navigate, status]
+  );
+
   return (
     <>
       <div className="navbar-wrapper">
@@ -10,15 +31,11 @@ const NavBar = memo(() => {
           <Link to="/">
             <div className="navbar-link">Главная</div>
           </Link>
-          <Link to="/dir">
-            <div className="navbar-link">Справочник</div>
-          </Link>
+          <div className="navbar-link" onClick={handleClick}>Справочник</div>
           <Link to="/about">
             <div className="navbar-link">О нас</div>
           </Link>
-          <Link to="/login">
-            <div className="navbar-link">Вход</div>
-          </Link>
+          {currentButton}
         </div>
       </div>
     </>
