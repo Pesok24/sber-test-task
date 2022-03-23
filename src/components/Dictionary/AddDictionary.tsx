@@ -2,7 +2,7 @@ import React, { memo, useCallback, useState } from "react";
 import { db } from "../../db";
 
 interface AddDictionaryProps {
-  update: () => void
+  update: (reset: boolean) => void
 }
 
 const AddDictionary = memo<AddDictionaryProps>(({ update }) => {
@@ -23,7 +23,7 @@ const AddDictionary = memo<AddDictionaryProps>(({ update }) => {
   const handleClick = useCallback((ev: React.MouseEvent) => {
     const { textInput, textAreaInput } = formState
     db.unshift({ name: textInput, des: textAreaInput })
-    update()
+    update(false)
   }, [formState, update])
 
   return (

@@ -1,42 +1,58 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { memo, useCallback, useRef, useState } from "react";
 import { db } from "../../db";
 import InfiniteScroll from "react-infinite-scroll-component";
 import AddDictionary from "./AddDictionary";
 
 const Dictionary = memo(() => {
   const [dbState, setDbState] = useState(db.slice(0, 20));
-  const [loading, setLoading] = useState(false);
-  const [hasMore, sethasMore] = useState(false);
+  const [filtredState, setFiltredState] = useState([{ name: "", des: "" }]);
+  const [hasMore, sethasMore] = useState(true);
+  const [inputValue, setInputValue] = useState("");
 
   let timeout: null | ReturnType<typeof setTimeout> = null;
 
-  const updateDbState = useCallback(() => {
-    setDbState(db.slice(0, 20));
-  }, []);
+  const updateDbState = useCallback(
+    (reset: boolean) => {
+      let filter = filtredState.length > 1 ? filtredState : db;
+      if (reset) {
+        setFiltredState([{ name: "", des: "" }]);
+        filter = db;
+      }
+      console.log(filter);
+      setDbState(filter.slice(0, 20));
+    },
+    [filtredState]
+  );
+
+  const filterFunc = useCallback(() => {
+    const filter = db.filter((e) =>
+      e.name.toLocaleLowerCase().startsWith(inputValue.toLowerCase())
+    );
+    inputValue.length < 1 && updateDbState(true);
+    setDbState(filter.slice(0, 20));
+    setFiltredState(filter);
+  }, [inputValue, updateDbState]);
 
   const searchVal = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(ev.target.value);
     if (timeout) clearTimeout(timeout);
-    setLoading(true);
+    sethasMore(true);
     timeout = setTimeout(() => {
       if (ev.target.value.length < 1) {
-        updateDbState();
-        setLoading(false);
+        updateDbState(true);
         return;
       }
-      setDbState(
-        db.filter((e) =>
-          e.name.toLocaleLowerCase().startsWith(ev.target.value.toLowerCase())
-        )
-      );
-      setLoading(false);
-    }, 700);
+      filterFunc();
+    }, 500);
   };
 
   const moreData = useCallback(() => {
+    const filter = filtredState.length > 1 ? filtredState : db;
     const oldLength = dbState.length;
     const newLength = oldLength + 20;
-    setDbState(dbState.concat(db.slice(oldLength, newLength)));
-  }, [dbState]);
+    if (newLength >= filter.length) sethasMore(false);
+    setDbState(dbState.concat(filter.slice(oldLength, newLength)));
+  }, [dbState, filtredState]);
 
   const deleteEl = useCallback(
     (name, des) => {
@@ -46,9 +62,11 @@ const Dictionary = memo(() => {
         return currentValue === searchValue;
       });
       db.splice(index, 1);
-      updateDbState();
+      setInputValue("");
+      filterFunc()
+      updateDbState(false);
     },
-    [updateDbState]
+    [filterFunc, updateDbState]
   );
 
   return (
@@ -58,6 +76,7 @@ const Dictionary = memo(() => {
           <input
             type="text"
             className="dictionary-search-input"
+            value={inputValue}
             onChange={searchVal}
           />
         </div>
@@ -65,7 +84,7 @@ const Dictionary = memo(() => {
           <InfiniteScroll
             dataLength={dbState.length}
             next={moreData}
-            hasMore={false}
+            hasMore={hasMore}
             loader={<h4>Загрузка...</h4>}
             scrollableTarget="dictionary-list-wrapper"
           >
