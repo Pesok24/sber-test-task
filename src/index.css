@@ -411,10 +411,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+@font-face {
+  font-family: "Ubuntu-Regular";
+  src: local("Ubuntu-Regular"),
+    url("../src/assets/fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
 body {
   height: 100vh;
   width: 100vw;
-}
+  background-image: linear-gradient(
+    0deg,
+    #13588b,
+    #13588b 25%,
+    #073863 65%,
+    #022d50 90%,
+    #022d50
+    );
+    color: white;
+    font-family: "Ubuntu-Regular";
+  }
 #root {
   height: 100vh;
   width: 100vw;
@@ -434,12 +450,17 @@ body {
   align-items: center;
 }
 .dictionary-search {
-  height: 3rem;
-  width: 7rem;
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: center;
+  padding-bottom: 1.25rem;
 }
 .dictionary-search-input {
-  height: 100%;
-  width: 100%;
+  height: 2rem;
+  width: 20rem;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .dictionary-list-wrapper {
   display: flex;
@@ -550,5 +571,28 @@ body {
 .login-error {
   padding-top: 1.25rem;
   text-align: center;
+}
+.addDictionary-wrapper {
+  display: flex;
+  height: auto;
+  width: 13rem;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+.addDictionary-div-el {
+  height: 100%;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+.addDictionary-text {
+  padding-bottom: 0.5rem;
+}
+.addDictionary-input {
+  width: 100%;
+  color: black;
+}
+.addDictionary-textarea {
+  width: 100%;
+  color: black;
 }
 

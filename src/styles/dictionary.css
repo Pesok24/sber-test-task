@@ -3,11 +3,11 @@
 }
 
 .dictionary-search {
-  @apply w-28 h-12
+  @apply w-full h-auto pb-5 flex justify-center
 }
 
 .dictionary-search-input {
-  @apply w-full h-full
+  @apply w-80 h-8 text-black
 }
 
 .dictionary-list-wrapper {

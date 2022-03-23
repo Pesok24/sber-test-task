@@ -1,0 +1,21 @@
+.addDictionary-wrapper {
+  @apply h-auto w-52 flex flex-col pt-2
+}
+
+.addDictionary-div-el {
+  @apply py-1 h-full
+}
+
+.addDictionary-text {
+  @apply pb-2
+}
+
+.addDictionary-input {
+  @apply w-full;
+  color: black;
+}
+
+.addDictionary-textarea {
+  @apply w-full;
+  color: black;
+}

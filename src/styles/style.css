@@ -1,7 +1,17 @@
 body {
   height: 100vh;
   width: 100vw;
-}
+  background-image: linear-gradient(
+    0deg,
+    #13588b,
+    #13588b 25%,
+    #073863 65%,
+    #022d50 90%,
+    #022d50
+    );
+    color: white;
+    font-family: "Ubuntu-Regular";
+  }
 
 #root {
   height: 100vh;
