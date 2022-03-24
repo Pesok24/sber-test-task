@@ -2,10 +2,11 @@ import React, { memo, useCallback, useState } from "react";
 import { db } from "../../db";
 
 interface AddDictionaryProps {
-  update: () => void
+  update: (reset: boolean) => void,
+  cleanFiltredState: () => void
 }
 
-const AddDictionary = memo<AddDictionaryProps>(({ update }) => {
+const AddDictionary = memo<AddDictionaryProps>(({ update, cleanFiltredState }) => {
 
   const [formState, setFormState] = useState({
     textInput: "",
@@ -21,10 +22,11 @@ const AddDictionary = memo<AddDictionaryProps>(({ update }) => {
   );
   
   const handleClick = useCallback((ev: React.MouseEvent) => {
+    cleanFiltredState()
     const { textInput, textAreaInput } = formState
     db.unshift({ name: textInput, des: textAreaInput })
-    update()
-  }, [formState, update])
+    update(true)
+  }, [cleanFiltredState, formState, update])
 
   return (
     <>

@@ -18,7 +18,7 @@ const NavBar = memo(() => {
   const handleClick = useCallback(
     (ev: React.MouseEvent) => {
       !status && navigate("/login");
-      status && navigate("/dir");
+      status && navigate("/dictionary");
     },
     [navigate, status]
   );

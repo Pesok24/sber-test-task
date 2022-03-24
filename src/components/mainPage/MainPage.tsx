@@ -1,5 +1,4 @@
-import faker from "@faker-js/faker";
-import React, { memo } from "react";
+import { memo } from "react";
 import { mainPageInfo } from "../../db";
 
 const MainPage = memo(() => {  

@@ -14,7 +14,7 @@ const App = memo(() => {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<MainPage />} />
-              <Route path="dir" element={<Dictionary />} />
+              <Route path="dictionary" element={<Dictionary />} />
               <Route path="login" element={<Login />} />
               <Route path="about" element={<About />} />
             </Route>

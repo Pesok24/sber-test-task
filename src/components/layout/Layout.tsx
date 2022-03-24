@@ -10,7 +10,6 @@ const Layout = memo(() => {
 
   useEffect(() => {
     setUserStorage();
-    console.log("effect");
   }, [setUserStorage]);
 
   return (

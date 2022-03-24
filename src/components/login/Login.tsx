@@ -33,7 +33,6 @@ const Login = memo(() => {
     []
   );
 
-  console.log(formState);
   return (
     <>
       <div className="login-wrapper">
