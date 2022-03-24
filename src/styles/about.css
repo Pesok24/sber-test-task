@@ -1,0 +1,11 @@
+.about-wrapper {
+  @apply h-auto w-full flex flex-col items-center pt-28 px-5
+}
+
+.about-h1-div {
+  @apply w-fit h-auto text-4xl
+}
+
+.about-info-div {
+  @apply text-center text-lg pt-14
+}

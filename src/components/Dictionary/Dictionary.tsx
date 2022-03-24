@@ -59,13 +59,14 @@ const Dictionary = memo(() => {
             type="text"
             className="dictionary-search-input"
             onChange={searchVal}
+            placeholder='Ввод...'
           />
         </div>
         <div className="dictionary-list-wrapper" id="dictionary-list-wrapper">
           <InfiniteScroll
             dataLength={dbState.length}
             next={moreData}
-            hasMore={false}
+            hasMore={true}
             loader={<h4>Загрузка...</h4>}
             scrollableTarget="dictionary-list-wrapper"
           >
@@ -75,7 +76,7 @@ const Dictionary = memo(() => {
                 <div className="dictionary-el-name">{name}</div>
                 <div className="dictionary-el-des">{des}</div>
                 <div className="dictionary-el-button-div">
-                  <button onClick={() => deleteEl(name, des)}>Удалить</button>
+                  <button className="dictionary-el-button" onClick={() => deleteEl(name, des)}>Удалить</button>
                 </div>
               </div>
             ))}

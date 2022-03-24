@@ -1,6 +1,5 @@
 .navbar-wrapper {
-  @apply flex items-center mb-6 w-full;
-  border: 1px solid blue;
+  @apply flex items-center mb-6 w-full h-24 border-b-2 border-white;
 }
 
 .navbar-links {
@@ -8,9 +7,14 @@
 }
 
 .navbar-link {
-  @apply py-8 h-full cursor-pointer;
+  @apply h-full cursor-pointer text-base;
+  transition: 0.5s font-size;
+  &:hover {
+    @apply text-lg;
+  }
 }
 
 .navbar-logo {
-  @apply w-60 text-center;
+  @apply w-60 text-center text-lg;
+  font-family: 'Ubuntu-Bold';
 }

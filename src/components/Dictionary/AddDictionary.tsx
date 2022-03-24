@@ -31,13 +31,13 @@ const AddDictionary = memo<AddDictionaryProps>(({ update }) => {
     <div className="addDictionary-wrapper">
     <div className="addDictionary-div-el">
       <p className="addDictionary-text">Введите заголовок:</p>
-      <input type="text" className="addDictionary-input" name="textInput" onChange={handleChange}/>
+      <input type="text" className="addDictionary-input" name="textInput" placeholder='Ввод...' onChange={handleChange}/>
     </div>
     <div className="addDictionary-div-el">
       <p className="addDictionary-text">Введите описание:</p>
-      <textarea className="addDictionary-textarea" name="textAreaInput" onChange={handleChange}></textarea>
+      <textarea className="addDictionary-textarea" placeholder='Ввод...' name="textAreaInput" onChange={handleChange}></textarea>
     </div>
-    <button type="submit" onClick={handleClick}>Добавить</button>
+    <button className="addDictionary-button" type="submit" onClick={handleClick}>Добавить</button>
     </div>
     </>
   );

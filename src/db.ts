@@ -1,3 +1,5 @@
+export const mainPageInfo = 'Voluptates qui est enim enim voluptate quo nihil voluptas rerum. Iste totam necessitatibus aut sed consectetur officiis tempora sed dolores. Totam expedita eligendi aut perspiciatis praesentium ut voluptatum. Perspiciatis minima fuga ipsa accusamus similique voluptatem qui quia aspernatur. Voluptatem nisi magni asperiores optio fuga dolorem accusamus. Blanditiis ad qui in est ut a voluptas. Facilis ut quod dolore sapiente quia. Qui et repellat. Porro corrupti in dolores sed ipsa.'
+export const aboutInfo = 'Doloribus quae autem nostrum eaque quisquam. Autem tempora minus rerum rerum nemo at veniam. Praesentium voluptatum eum nostrum magni voluptatem omnis. Error aut voluptates dolorum aut laborum voluptatum non.'
 export let db = [
   { name: "sit", des: "Voluptatem molestiae delectus labore." },
   { name: "excepturi", des: "Maxime reiciendis vel mollitia ullam." },

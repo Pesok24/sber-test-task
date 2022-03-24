@@ -417,6 +417,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     url("../src/assets/fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
   font-weight: bold;
 }
+@font-face {
+  font-family: "Ubuntu-Bold";
+  src: local("Ubuntu-Bold"),
+    url("../src/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
 body {
   height: 100vh;
   width: 100vw;
@@ -459,6 +465,9 @@ body {
 .dictionary-search-input {
   height: 2rem;
   width: 20rem;
+  border-radius: 0.5rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
@@ -470,14 +479,20 @@ body {
   overflow: auto;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  border: 1px solid red;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 .dictionary-el {
   display: flex;
   height: 3.5rem;
   width: 100%;
   align-items: center;
-  border: 1px solid green;
+  border-bottom-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .dictionary-el-name {
   display: flex;
@@ -493,12 +508,30 @@ body {
   align-items: center;
   justify-content: center;
 }
+.dictionary-el-index {
+  padding-left: 0.5rem;
+}
+.dictionary-el-button-div {
+  margin-right: 0.5rem;
+}
+.dictionary-el-button {
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 148 136 / var(--tw-bg-opacity));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
 .navbar-wrapper {
   margin-bottom: 1.5rem;
   display: flex;
+  height: 6rem;
   width: 100%;
   align-items: center;
-  border: 1px solid blue;
+  border-bottom-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 .navbar-links {
   display: flex;
@@ -509,12 +542,20 @@ body {
 .navbar-link {
   height: 100%;
   cursor: pointer;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  transition: 0.5s font-size;
+}
+.navbar-link:hover {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .navbar-logo {
   width: 15rem;
   text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-family: 'Ubuntu-Bold';
 }
 .login-wrapper {
   display: flex;
@@ -522,8 +563,11 @@ body {
   width: 18rem;
   flex-direction: column;
   align-items: center;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
   padding: 1rem;
-  border: 1px solid red;
 }
 .login-el {
   display: flex;
@@ -547,6 +591,8 @@ body {
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
   padding: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .login-p {
   padding-bottom: 0.5rem;
@@ -589,10 +635,72 @@ body {
 }
 .addDictionary-input {
   width: 100%;
+  border-radius: 0.5rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   color: black;
 }
 .addDictionary-textarea {
   width: 100%;
+  border-radius: 0.5rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   color: black;
 }
+.addDictionary-button {
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 148 136 / var(--tw-bg-opacity));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.mainPage-wrapper {
+  display: flex;
+  height: auto;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 7rem;
+}
+.mainPage-h1-div {
+  height: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.mainPage-info-div {
+  padding-top: 3.5rem;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.about-wrapper {
+  display: flex;
+  height: auto;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 7rem;
+}
+.about-h1-div {
+  height: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.about-info-div {
+  padding-top: 3.5rem;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 

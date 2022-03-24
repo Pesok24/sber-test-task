@@ -4,3 +4,10 @@
     url("../src/assets/fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
   font-weight: bold;
 }
+
+@font-face {
+  font-family: "Ubuntu-Bold";
+  src: local("Ubuntu-Bold"),
+    url("../src/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: bold;
+}

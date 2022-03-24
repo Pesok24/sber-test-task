@@ -7,17 +7,16 @@
 }
 
 .dictionary-search-input {
-  @apply w-80 h-8 text-black
+  @apply w-80 h-8 text-black rounded-lg px-1
 }
 
 .dictionary-list-wrapper {
   @apply w-full h-96 overflow-auto flex flex-col px-3;
-  border: 1px solid red;
+  @apply border-2 border-white 
 }
 
 .dictionary-el {
-  @apply w-full h-14 flex items-center;
-  border: 1px solid green;
+  @apply py-8 w-full h-14 flex items-center border-b-2 border-white ;
 }
 
 .dictionary-el-name {
@@ -26,4 +25,16 @@
 
 .dictionary-el-des {
   @apply flex justify-center items-center h-full w-2/3
+}
+
+.dictionary-el-index {
+  @apply pl-2
+}
+
+.dictionary-el-button-div {
+  @apply mr-2 
+}
+
+.dictionary-el-button {
+  @apply py-3 px-5 bg-teal-600 rounded-xl
 }

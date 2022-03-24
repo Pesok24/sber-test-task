@@ -26,7 +26,7 @@ const NavBar = memo(() => {
   return (
     <>
       <div className="navbar-wrapper">
-        <div className="navbar-logo">Словарь</div>
+        <div className="navbar-logo">Тестовое задание</div>
         <div className="navbar-links">
           <Link to="/">
             <div className="navbar-link">Главная</div>
