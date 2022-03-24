@@ -11,6 +11,7 @@ const Dictionary = memo(() => {
   const [dbState, setDbState] = useState(db.slice(0, 20));
   const [filtredState, setFiltredState] = useState([{ name: "", des: "" }]);
   const [hasMore, sethasMore] = useState(true);
+  const [error, setError] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   let startRef = useRef<HTMLDivElement>(null);
@@ -46,6 +47,7 @@ const Dictionary = memo(() => {
     sethasMore(true);
     timeout = setTimeout(() => {
       if (ev.target.value.length < 1) {
+        setError(false)
         updateDbState(true);
         return;
       }
@@ -55,9 +57,11 @@ const Dictionary = memo(() => {
 
   const filterFunc = useCallback(
     (text) => {
+      setError(false)
       const filter = db.filter((e) =>
         e.name.toLocaleLowerCase().startsWith(text.toLowerCase())
       );
+      if (filter.length < 1) return setError(true)
       inputValue.length < 1 && updateDbState(true);
       setDbState(filter.slice(0, 20));
       setFiltredState(filter);
@@ -94,13 +98,14 @@ const Dictionary = memo(() => {
         <div className="dictionary-search">
           <input
             type="text"
+            placeholder="Ввод..."
             className="dictionary-search-input"
             value={inputValue}
             onChange={searchVal}
           />
         </div>
         <div className="dictionary-list-wrapper" id="dictionary-list-wrapper">
-          <InfiniteScroll
+          {error ? <h1 className="dictionary-list-error">Таких справочников нет!</h1> : <InfiniteScroll
             dataLength={dbState.length}
             next={moreData}
             hasMore={hasMore}
@@ -124,7 +129,7 @@ const Dictionary = memo(() => {
                 </div>
               );
             })}
-          </InfiniteScroll>
+          </InfiniteScroll>}
         </div>
         <AddDictionary
           update={updateDbState}

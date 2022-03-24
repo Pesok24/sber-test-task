@@ -38,3 +38,7 @@
 .dictionary-el-button {
   @apply py-3 px-5 bg-teal-600 rounded-xl
 }
+
+.dictionary-list-error {
+  @apply text-center text-2xl pt-10
+}
